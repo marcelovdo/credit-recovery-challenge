@@ -1,11 +1,13 @@
 package com.credit.client.entrypoint;
 
+import com.credit.client.entrypoint.adapters.UpdateRequestToDTOAdapter;
 import com.credit.client.usecase.ClientUseCase;
 import com.credit.client.entrypoint.adapters.CreateRequestToDTOAdapter;
 import com.credit.client.entrypoint.adapters.DTOToCreateResponseAdapter;
 import com.credit.client.entrypoint.adapters.DTOToFindResponseAdapter;
 import com.credit.client.dto.ClientDTO;
 import com.credit.client.entrypoint.request.ClientCreateRequest;
+import com.credit.client.entrypoint.request.ClientUpdateRequest;
 import com.credit.client.entrypoint.response.ClientCreateResponse;
 import com.credit.client.entrypoint.response.ClientFindResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +35,11 @@ public class ClientController {
         ClientDTO dto = useCase.findClient(clientId);
         ClientFindResponse response = DTOToFindResponseAdapter.adapt(dto);
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PutMapping("/{clientId}")
+    public ResponseEntity<Void> updateClient(@RequestBody ClientUpdateRequest request, @PathVariable String clientId) {
+        useCase.updateClient(UpdateRequestToDTOAdapter.adapt(request, clientId));
+        return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
     }
 }

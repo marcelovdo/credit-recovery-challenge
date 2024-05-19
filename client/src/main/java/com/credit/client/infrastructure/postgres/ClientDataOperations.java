@@ -21,13 +21,15 @@ public class ClientDataOperations {
 
     public void createClient(ClientDTO dto) {
         Client client = DTOToEntityAdapter.adapt(dto);
-        System.out.println("POST NAME: " + client.getName());
         repository.save(client);
     }
 
     public ClientDTO findClient(String id) {
         Optional<Client> opClient = repository.findById(id);
-        System.out.println("GET NAME: " + opClient.get().getName());
         return opClient.map(EntityToDTOAdapter::adapt).orElseGet(() -> new ClientDTO("", ""));
+    }
+
+    public void updateClient(ClientDTO dto) {
+        createClient(dto);
     }
 }

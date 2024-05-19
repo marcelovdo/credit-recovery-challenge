@@ -19,4 +19,8 @@ public class ClientUseCase {
     public ClientDTO findClient(String id) {
         return dataOperations.findClient(id);
     }
+
+    public void updateClient(ClientDTO dto) {
+        dataOperations.updateClient(dto);
+    }
 }
