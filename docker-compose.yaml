@@ -1,5 +1,15 @@
 services:
+  postgres:
+    image: 'postgres'
+    volumes:
+      - data:/var/lib/postgresql/data
+    env_file:
+      - ./env/db.env
   client:
     build: ./client
     ports: 
       - '8080:8080'
+    depends_on:
+      - postgres
+volumes:
+  data:
