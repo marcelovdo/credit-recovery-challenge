@@ -1,14 +1,14 @@
-package org.credit.client.entrypoint;
+package com.credit.client.entrypoint;
 
-import org.credit.client.adapters.CreateRequestToDTOAdapter;
-import org.credit.client.adapters.DTOToCreateResponseAdapter;
-import org.credit.client.adapters.DTOToFindResponseAdapter;
-import org.credit.client.dto.ClientDTO;
-import org.credit.client.entrypoint.request.ClientCreateRequest;
-import org.credit.client.entrypoint.response.ClientCreateResponse;
-import org.credit.client.entrypoint.response.ClientFindResponse;
-import org.credit.client.usecase.CreateClientUseCase;
-import org.credit.client.usecase.FindClientUseCase;
+import com.credit.client.usecase.CreateClientUseCase;
+import com.credit.client.adapters.CreateRequestToDTOAdapter;
+import com.credit.client.adapters.DTOToCreateResponseAdapter;
+import com.credit.client.adapters.DTOToFindResponseAdapter;
+import com.credit.client.dto.ClientDTO;
+import com.credit.client.entrypoint.request.ClientCreateRequest;
+import com.credit.client.entrypoint.response.ClientCreateResponse;
+import com.credit.client.entrypoint.response.ClientFindResponse;
+import com.credit.client.usecase.FindClientUseCase;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package org.credit.client;
+package com.credit.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

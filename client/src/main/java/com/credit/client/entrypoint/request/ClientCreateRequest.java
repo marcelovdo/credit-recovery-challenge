@@ -1,4 +1,4 @@
-package org.credit.client.entrypoint.request;
+package com.credit.client.entrypoint.request;
 
 public record ClientCreateRequest(
         String id,

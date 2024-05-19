@@ -1,4 +1,4 @@
-package org.credit.client.entrypoint.response;
+package com.credit.client.entrypoint.response;
 
 public record ClientCreateResponse(
         String id,

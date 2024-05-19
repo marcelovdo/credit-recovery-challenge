@@ -1,4 +1,4 @@
-package org.credit.client.dto;
+package com.credit.client.dto;
 
 public record ClientDTO(
         String id,

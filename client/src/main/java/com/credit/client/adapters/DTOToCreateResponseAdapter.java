@@ -1,7 +1,7 @@
-package org.credit.client.adapters;
+package com.credit.client.adapters;
 
-import org.credit.client.dto.ClientDTO;
-import org.credit.client.entrypoint.response.ClientCreateResponse;
+import com.credit.client.entrypoint.response.ClientCreateResponse;
+import com.credit.client.dto.ClientDTO;
 
 public class DTOToCreateResponseAdapter {
     public static ClientCreateResponse adapt(ClientDTO dto) {
