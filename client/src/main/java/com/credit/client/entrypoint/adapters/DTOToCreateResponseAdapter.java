@@ -1,4 +1,4 @@
-package com.credit.client.adapters;
+package com.credit.client.entrypoint.adapters;
 
 import com.credit.client.entrypoint.response.ClientCreateResponse;
 import com.credit.client.dto.ClientDTO;
