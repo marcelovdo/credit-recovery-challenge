@@ -1,7 +1,10 @@
 package com.credit.client.entrypoint.response;
 
+import java.math.BigInteger;
+
 public record ClientFindResponse(
         String id,
-        String name
+        String name,
+        BigInteger debit
 ) {
 }

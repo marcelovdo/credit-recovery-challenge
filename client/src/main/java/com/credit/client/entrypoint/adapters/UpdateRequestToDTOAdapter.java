@@ -8,7 +8,8 @@ public class UpdateRequestToDTOAdapter {
     public static ClientDTO adapt(ClientUpdateRequest request, String id) {
         return new ClientDTO(
                 id,
-                request.name()
+                request.name(),
+                request.debit()
         );
     }
 }

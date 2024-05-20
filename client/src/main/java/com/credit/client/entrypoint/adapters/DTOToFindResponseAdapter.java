@@ -7,7 +7,8 @@ public class DTOToFindResponseAdapter {
     public static ClientFindResponse adapt(ClientDTO dto) {
         return new ClientFindResponse(
                 dto.id(),
-                dto.name()
+                dto.name(),
+                dto.debit()
         );
     }
 }

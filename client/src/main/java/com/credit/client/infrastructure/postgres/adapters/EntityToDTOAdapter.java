@@ -5,6 +5,6 @@ import com.credit.client.infrastructure.postgres.entity.Client;
 
 public class EntityToDTOAdapter {
     public static ClientDTO adapt(Client client) {
-        return new ClientDTO(client.getId(), client.getName());
+        return new ClientDTO(client.getId(), client.getName(), client.getDebit());
     }
 }

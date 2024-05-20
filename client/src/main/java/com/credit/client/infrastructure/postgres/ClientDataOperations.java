@@ -1,6 +1,7 @@
 package com.credit.client.infrastructure.postgres;
 
 import com.credit.client.dto.ClientDTO;
+import com.credit.client.exception.NotFoundException;
 import com.credit.client.infrastructure.postgres.adapters.DTOToEntityAdapter;
 import com.credit.client.infrastructure.postgres.adapters.EntityToDTOAdapter;
 import com.credit.client.infrastructure.postgres.entity.Client;
@@ -26,10 +27,18 @@ public class ClientDataOperations {
 
     public ClientDTO findClient(String id) {
         Optional<Client> opClient = repository.findById(id);
-        return opClient.map(EntityToDTOAdapter::adapt).orElseGet(() -> new ClientDTO("", ""));
+        return opClient.map(EntityToDTOAdapter::adapt).orElseThrow(() -> new NotFoundException("Client id not found"));
     }
 
     public void updateClient(ClientDTO dto) {
-        createClient(dto);
+        Optional<Client> opClient = repository.findById(dto.id());
+        Client client;
+        if (opClient.isPresent()) {
+            client = opClient.get();
+            client.updateClient(dto);
+        } else {
+            client = DTOToEntityAdapter.adapt(dto);
+        }
+        repository.save(client);
     }
 }
