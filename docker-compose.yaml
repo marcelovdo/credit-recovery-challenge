@@ -5,11 +5,22 @@ services:
       - data:/var/lib/postgresql/data
     env_file:
       - ./env/db.env
+  queue:
+    image: 'rabbitmq:management'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - queue_data:/var/lib/rabbitmq
+      - ./conf/queue/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./conf/queue/definitions.json:/etc/rabbitmq/definitions.json
   client:
     build: ./client
     ports: 
       - '8080:8080'
     depends_on:
       - postgres
+      - queue
 volumes:
   data:
+  queue_data:
